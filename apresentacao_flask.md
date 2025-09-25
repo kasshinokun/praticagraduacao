@@ -1,3 +1,5 @@
+Versão 1 25-09-2025
+
 # Apresentação Python & JavaScript - Aplicação Flask
 
 Uma aplicação monolítica em Flask que apresenta o conteúdo do relatório sobre Python e JavaScript, demonstrando na prática os paradigmas e características marcantes do Python.
