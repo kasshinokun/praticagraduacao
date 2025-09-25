@@ -37,7 +37,8 @@ def index():
     """Página inicial da apresentação"""
     return render_template('index.html', 
                          title="Relatório Detalhado sobre Python e JavaScript",
-                         author="Gabriel da Silva Cassino")
+                         author="Gabriel da Silva Cassino",
+                         author2="Welbert Junio Afonso de Almeida")
 
 @app.route('/python')
 def python_intro():
