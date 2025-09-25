@@ -2,7 +2,7 @@
 
 Uma aplicação monolítica em Flask que apresenta o conteúdo do relatório sobre Python e JavaScript, demonstrando na prática os paradigmas e características marcantes do Python.
 
-[**Link Deploy**](https://praticagraduacao.pythonanywhere.com/python)
+[**Link Deploy no PythonAnyWhere**](https://praticagraduacao.pythonanywhere.com/python)
 
 ## 🎯 Objetivo
 
