@@ -4,71 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Apresentação Python & JavaScript{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for("serve_static", filename="css/style.css") }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="{{ url_for('index') }}">
+    <div class="app-layout">
+        <!-- Cabeçalho fixo -->
+        <header class="header">
+            <div class="header-content">
+                <a href="{{ url_for("index") }}" class="header-brand">
                     <span class="brand-icon">🐍</span>
                     <span class="brand-text">Python & JavaScript</span>
                 </a>
             </div>
-            
-            <div class="nav-menu" id="nav-menu">
-                <div class="nav-section">
-                    <h4>Python</h4>
-                    <a href="{{ url_for('python_intro') }}" class="nav-link">Introdução</a>
-                    <a href="{{ url_for('python_historico') }}" class="nav-link">Histórico</a>
-                    <a href="{{ url_for('python_paradigmas') }}" class="nav-link">Paradigmas</a>
-                    <a href="{{ url_for('python_caracteristicas') }}" class="nav-link">Características</a>
-                    <a href="{{ url_for('python_linguagens_relacionadas') }}" class="nav-link">Linguagens Relacionadas</a>
-                    <a href="{{ url_for('python_exemplos') }}" class="nav-link">Exemplos</a>
-                    <a href="{{ url_for('python_arquitetura') }}" class="nav-link">Arquitetura</a>
+        </header>
+
+        <!-- Container principal -->
+        <div class="main-container">
+            <!-- Sidebar lateral fixo -->
+            <nav class="sidebar" id="sidebar">
+                <!-- Seção Apresentação -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header apresentacao">Apresentação</div>
+                    <div class="sidebar-links">
+                        <a href="{{ url_for("app_start") }}" class="sidebar-link">Inicio</a>
+                        <a href="{{ url_for("app_intro") }}" class="sidebar-link">Introdução</a>
+                        <a href="{{ url_for("app_topics") }}" class="sidebar-link">Tópicos</a>
+                        <a href="{{ url_for("app_about") }}" class="sidebar-link">Sobre</a>
+                    </div>
                 </div>
                 
-                <div class="nav-section">
-                    <h4>JavaScript</h4>
-                    <a href="{{ url_for('javascript_intro') }}" class="nav-link">Introdução</a>
-                    <a href="{{ url_for('javascript_historico') }}" class="nav-link">Histórico</a>
-                    <a href="{{ url_for('javascript_paradigmas') }}" class="nav-link">Paradigmas</a>
-                    <a href="{{ url_for('javascript_caracteristicas') }}" class="nav-link">Características</a>
-                    <a href="{{ url_for('javascript_linguagens_relacionadas') }}" class="nav-link">Linguagens Relacionadas</a>
-                    <a href="{{ url_for('javascript_exemplos') }}" class="nav-link">Exemplos</a>
+                <!-- Seção Python -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header python">Python</div>
+                    <div class="sidebar-links">
+                        <a href="{{ url_for("python_intro") }}" class="sidebar-link">Introdução</a>
+                        <a href="{{ url_for("python_historico") }}" class="sidebar-link">Histórico</a>
+                        <a href="{{ url_for("python_paradigmas") }}" class="sidebar-link">Paradigmas</a>
+                        <a href="{{ url_for("python_caracteristicas") }}" class="sidebar-link">Características</a>
+                        <a href="{{ url_for("python_linguagens_relacionadas") }}" class="sidebar-link">Linguagens Relacionadas</a>
+                        <a href="{{ url_for("python_exemplos") }}" class="sidebar-link">Exemplos</a>
+                        <a href="{{ url_for("python_arquitetura") }}" class="sidebar-link">Arquitetura</a>
+                    </div>
                 </div>
-                
-                <div class="nav-section">
-                    <h4>Conclusão</h4>
-                    <a href="{{ url_for('consideracoes_finais') }}" class="nav-link">Considerações Finais</a>
-                    <a href="{{ url_for('bibliografia') }}" class="nav-link">Bibliografia</a>
+
+                <!-- Seção JavaScript -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header javascript">JavaScript</div>
+                    <div class="sidebar-links">
+                        <a href="{{ url_for("javascript_intro") }}" class="sidebar-link">Introdução</a>
+                        <a href="{{ url_for("javascript_historico") }}" class="sidebar-link">Histórico</a>
+                        <a href="{{ url_for("javascript_paradigmas") }}" class="sidebar-link">Paradigmas</a>
+                        <a href="{{ url_for("javascript_caracteristicas") }}" class="sidebar-link">Características</a>
+                        <a href="{{ url_for("javascript_linguagens_relacionadas") }}" class="sidebar-link">Linguagens Relacionadas</a>
+                        <a href="{{ url_for("javascript_exemplos") }}" class="sidebar-link">Exemplos</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+                <!-- Seção Conclusão -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header conclusion">Conclusão</div>
+                    <div class="sidebar-links">
+                        <a href="{{ url_for("consideracoes_finais") }}" class="sidebar-link">Considerações Finais</a>
+                        <a href="{{ url_for("bibliografia") }}" class="sidebar-link">Bibliografia</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Área de conteúdo -->
+            <main class="content-area">
+                <div class="main-content">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
         </div>
-    </nav>
 
-    <main class="main-content">
-        {% block content %}{% endblock %}
-    </main>
-
+        <!-- Toggle para mobile -->
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Gabriel da Silva Cassino - Relatório Detalhado sobre Python e JavaScript</p>
+            <p>&copy; 2025 Gabriel da Silva Cassino / Welbert Junio Afonso de Almeida - Relatório Detalhado sobre Python e JavaScript</p>
             <p>Apresentação desenvolvida com Flask aplicando paradigmas Python</p>
         </div>
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="{{ url_for('serve_static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for("serve_static", filename="js/main.js") }}"></script>
 </body>
 </html>
 

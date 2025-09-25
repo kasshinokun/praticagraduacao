@@ -40,6 +40,43 @@ def index():
                          author="Gabriel da Silva Cassino",
                          author2="Welbert Junio Afonso de Almeida")
 
+#======================> Modularizando HomePage <=====================================================
+@app.route('/inicio-ttp')
+def app_start():
+    """Página inicial da apresentação - Capa"""
+    return render_template('capa.html', 
+                         title="Relatório Detalhado sobre Python e JavaScript",
+                         author="Gabriel da Silva Cassino",
+                         author2="Welbert Junio Afonso de Almeida")
+
+@app.route('/intro-ttp')
+def app_intro():
+    """Página inicial da apresentação - Introdução"""
+    return render_template('intro_apresentacao.html',
+                         title="Relatório Detalhado sobre Python e JavaScript",
+                         author="Gabriel da Silva Cassino",
+                         author2="Welbert Junio Afonso de Almeida")
+
+
+@app.route('/topicos-ttp')
+def app_topics():
+    """Página inicial da apresentação - Tópicos"""
+    return render_template('topicos_apresentacao.html',
+                         title="Relatório Detalhado sobre Python e JavaScript",
+                         author="Gabriel da Silva Cassino",
+                         author2="Welbert Junio Afonso de Almeida")
+
+
+@app.route('/about-ttp')
+def app_about():
+    """Página inicial da apresentação - Sobre"""
+    return render_template('about_apresentacao.html',
+                         title="Relatório Detalhado sobre Python e JavaScript",
+                         author="Gabriel da Silva Cassino",
+                         author2="Welbert Junio Afonso de Almeida")
+
+#=====================> Fim Modularização HomePage <===================================================
+
 @app.route('/python')
 def python_intro():
     """Introdução ao Python"""
@@ -161,7 +198,7 @@ def api_python_features():
                 "functional_analysis": analysis,
                 "oop_processing": processed_data,
                 "singleton_config": config,
-                "python_paradigms": ["POO", "Funcional", "Imperativa"],
+                "python_paradigmas": ["POO", "Funcional", "Imperativa"],
                 "flask_features": ["Rotas", "Templates", "JSON API", "CORS"]
             }
         })
@@ -178,7 +215,7 @@ def api_demo():
         "message": "API Flask funcionando!",
         "python_version": "3.11+",
         "framework": "Flask",
-        "paradigms_demonstrated": [
+        "paradigmas_demonstrated": [
             "Programação Orientada a Objetos",
             "Programação Funcional", 
             "Decoradores",
@@ -189,4 +226,5 @@ def api_demo():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
