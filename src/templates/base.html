@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Apresentação Python & JavaScript{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="{{ url_for('index') }}">
+                    <span class="brand-icon">🐍</span>
+                    <span class="brand-text">Python & JavaScript</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-section">
+                    <h4>Python</h4>
+                    <a href="{{ url_for('python_intro') }}" class="nav-link">Introdução</a>
+                    <a href="{{ url_for('python_historico') }}" class="nav-link">Histórico</a>
+                    <a href="{{ url_for('python_paradigmas') }}" class="nav-link">Paradigmas</a>
+                    <a href="{{ url_for('python_caracteristicas') }}" class="nav-link">Características</a>
+                    <a href="{{ url_for('python_linguagens_relacionadas') }}" class="nav-link">Linguagens Relacionadas</a>
+                    <a href="{{ url_for('python_exemplos') }}" class="nav-link">Exemplos</a>
+                    <a href="{{ url_for('python_arquitetura') }}" class="nav-link">Arquitetura</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h4>JavaScript</h4>
+                    <a href="{{ url_for('javascript_intro') }}" class="nav-link">Introdução</a>
+                    <a href="{{ url_for('javascript_historico') }}" class="nav-link">Histórico</a>
+                    <a href="{{ url_for('javascript_paradigmas') }}" class="nav-link">Paradigmas</a>
+                    <a href="{{ url_for('javascript_caracteristicas') }}" class="nav-link">Características</a>
+                    <a href="{{ url_for('javascript_linguagens_relacionadas') }}" class="nav-link">Linguagens Relacionadas</a>
+                    <a href="{{ url_for('javascript_exemplos') }}" class="nav-link">Exemplos</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h4>Conclusão</h4>
+                    <a href="{{ url_for('consideracoes_finais') }}" class="nav-link">Considerações Finais</a>
+                    <a href="{{ url_for('bibliografia') }}" class="nav-link">Bibliografia</a>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Gabriel da Silva Cassino - Relatório Detalhado sobre Python e JavaScript</p>
+            <p>Apresentação desenvolvida com Flask aplicando paradigmas Python</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="{{ url_for('serve_static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
