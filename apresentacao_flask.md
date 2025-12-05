@@ -221,9 +221,12 @@ def performance_monitor(operation_name: str):
 - [Jinja2 Templates](https://jinja.palletsprojects.com/)
 - [MDN Web Docs](https://developer.mozilla.org/)
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-**Gabriel da Silva Cassino**  
+[**Gabriel da Silva Cassino**](https://github.com/kasshinokun)
+
+[**Welbert Junio Afonso de Almeida** ](https://github.com/welbertalmeida)
+
 Relatório Detalhado sobre Python e JavaScript  
 Setembro 2025
 
